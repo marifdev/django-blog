@@ -1,0 +1,23 @@
+<h1>Create Post</h1>
+
+<style>
+    h3{
+        color: red;
+    }
+</style>
+
+{% if user.is_authenticated %}
+<form action="create_post" method="post">
+    {% csrf_token %}
+    <p>Title: </p>
+    <input type="text" name="title">
+
+    <p>Post Body: </p>
+    <textarea name="post_body" id="" cols="30" rows="10"></textarea>
+    <br>
+
+    <input type="submit">
+</form>
+{% else %}
+<h3>You have to login to create a new post</h3>
+{% endif %}
